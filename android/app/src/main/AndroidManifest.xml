@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ptk.wanna_chat">
    <application
-        android:label="wanna_chat"
+        android:label="WannaChat?"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
