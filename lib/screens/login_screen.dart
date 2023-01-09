@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:wanna_chat/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -20,9 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/login_screen_background.jpg'),
+              image: AssetImage('assets/login_screen_background4.jpg'),
               fit: BoxFit.cover,
-              opacity: 0.2,
+              opacity: 0.1,
             ),
           ),
           child: Padding(
@@ -67,7 +66,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
-                  autofocus: true,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
@@ -96,7 +94,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 10),
                 ElevatedButton(
                   child: Text('Sign in'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(250, 55),
                     backgroundColor: Colors.purple,
