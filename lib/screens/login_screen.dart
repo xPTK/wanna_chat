@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wanna_chat/screens/home_screen.dart';
+import 'package:wanna_chat/screens/home_screen/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
