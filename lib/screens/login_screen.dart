@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/login_screen_background4.jpg'),
               fit: BoxFit.cover,
@@ -29,10 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Spacer(),
+                const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Center(
                       child: Text(
                         "WannaChat?",
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         '|',
                         style: TextStyle(
@@ -54,30 +54,30 @@ class _LoginScreenState extends State<LoginScreen> {
                     Icon(Icons.chat, size: 36),
                   ],
                 ),
-                SizedBox(height: 10),
-                Center(
+                const SizedBox(height: 10),
+                const Center(
                   child: Text(
                     "Chat with everyone. Anywhere in the world.",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20, color: Colors.purple),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.person),
-                    labelText: 'Enter your email adress',
+                    labelText: 'Enter your email address',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.lock),
                     labelText: 'Enter your password',
                     border: OutlineInputBorder(
@@ -91,23 +91,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: false,
                   textInputAction: TextInputAction.done,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ElevatedButton(
-                  child: Text('Sign in'),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
-                  },
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(250, 55),
+                    fixedSize: const Size(250, 55),
                     backgroundColor: Colors.purple,
-                    shape: StadiumBorder(),
-                    side: BorderSide(color: Colors.white),
+                    shape: const StadiumBorder(),
+                    side: const BorderSide(color: Colors.white),
                     elevation: 5.0,
                   ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const HomeScreen()),
+                    );
+                  },
+                  child: const Text('Sign in'),
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
           ),
