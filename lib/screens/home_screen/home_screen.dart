@@ -1,51 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:wanna_chat/screens/home_screen/pages/messages_page.dart';
-import 'package:wanna_chat/screens/home_screen/pages/settings_page.dart';
 import 'package:wanna_chat/screens/home_screen/widgets/export.dart';
+import 'package:wanna_chat/screens/home_screen/pages/export.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+  final ValueNotifier<int> pageIndex = ValueNotifier(0);
 
-class _HomeScreenState extends State<HomeScreen> {
-  late PageController _storyController;
-
-  List pages = const [
+  final List pages = const [
     MessagesPage(),
+    NotificationsPage(),
     SettingsPage(),
   ];
-
-  @override
-  void initState() {
-    _storyController = PageController(initialPage: 0);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _storyController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        drawerScrimColor: Colors.purple,
         drawer: const HomeDrawer(),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            HomeAppBar(storyController: _storyController),
-            const Conversations(),
-          ],
+        drawerScrimColor: Colors.purple,
+        body: ValueListenableBuilder(
+          valueListenable: pageIndex,
+          builder: (context, value, child) {
+            print('value: $value');
+            return pages[value];
+          },
         ),
-        bottomNavigationBar: const BottomNavBar(),
+        bottomNavigationBar: BottomNavBar(
+          onItemSelected: (index) {
+            pageIndex.value = index;
+          },
+        ),
       ),
     );
   }

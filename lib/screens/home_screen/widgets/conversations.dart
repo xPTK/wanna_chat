@@ -17,7 +17,7 @@ class Conversations extends StatelessWidget {
           return InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const ChatScreen(),
+                builder: (context) => ChatScreen(),
               ));
             },
             child: Card(

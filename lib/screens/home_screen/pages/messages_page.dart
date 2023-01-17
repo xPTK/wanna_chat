@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
-class MessagesPage extends StatefulWidget {
-  const MessagesPage({Key? key}) : super(key: key);
+import '../widgets/export.dart';
 
-  @override
-  State<MessagesPage> createState() => _MessagesPageState();
-}
+class MessagesPage extends StatelessWidget {
+  const MessagesPage({
+    Key? key,
+  }) : super(key: key);
 
-class _MessagesPageState extends State<MessagesPage> {
+  //final PageController _storyController;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: const [
+        HomeAppBar(),
+        Conversations(),
+      ],
+    );
   }
 }

@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
     Key? key,
-    required PageController storyController,
-  }) : _storyController = storyController, super(key: key);
-
-  final PageController _storyController;
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +50,12 @@ class HomeAppBar extends StatelessWidget {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.8,
                           child: TextFormField(
-                            decoration: const InputDecoration(
-                              prefixIcon: Icon(Icons.search),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white.withOpacity(0.3),
+                              filled: true,
+                              prefixIcon: const Icon(Icons.search),
                               labelText: 'Search...',
-                              border: OutlineInputBorder(
+                              border: const OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(30),
                                 ),
@@ -79,7 +78,6 @@ class HomeAppBar extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListView.builder(
-                      controller: _storyController,
                       scrollDirection: Axis.horizontal,
                       itemCount: 10,
                       itemBuilder: (context, index) {

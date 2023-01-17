@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatefulWidget {
   const BottomNavBar({
     Key? key,
+    required this.onItemSelected,
   }) : super(key: key);
+
+  final ValueChanged<int> onItemSelected;
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
     return SalomonBottomBar(
       selectedColorOpacity: 0.15,
       unselectedItemColor: Colors.grey,
-      currentIndex: 0,
+      currentIndex: index,
       duration: const Duration(seconds: 1),
+      onTap: (navItem) {
+        widget.onItemSelected(navItem);
+        setState(() {
+          index = navItem;
+        });
+      },
       items: [
         SalomonBottomBarItem(
           icon: Icon(
             Icons.message,
             shadows: [
-              Shadow(
-                color: Colors.black,
-                offset: Offset.fromDirection(1, 1),
-                blurRadius: 1,
-              ),
+              buildShadow(),
             ],
           ),
           title: const Text('Messages'),
@@ -31,11 +43,7 @@ class BottomNavBar extends StatelessWidget {
           icon: Icon(
             Icons.notifications,
             shadows: [
-              Shadow(
-                color: Colors.black,
-                offset: Offset.fromDirection(1, 1),
-                blurRadius: 1,
-              ),
+              buildShadow(),
             ],
           ),
           title: const Text('Notifications'),
@@ -44,16 +52,20 @@ class BottomNavBar extends StatelessWidget {
           icon: Icon(
             Icons.settings,
             shadows: [
-              Shadow(
-                color: Colors.black,
-                offset: Offset.fromDirection(1, 1),
-                blurRadius: 1,
-              ),
+              buildShadow(),
             ],
           ),
           title: const Text('Settings'),
         ),
       ],
+    );
+  }
+
+  Shadow buildShadow() {
+    return Shadow(
+      color: Colors.black,
+      offset: Offset.fromDirection(1, 1),
+      blurRadius: 1,
     );
   }
 }
