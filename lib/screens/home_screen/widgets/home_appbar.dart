@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wanna_chat/helpers.dart';
+import 'package:wanna_chat/global_widgets/avatar.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -29,74 +31,67 @@ class HomeAppBar extends StatelessWidget {
             bottom: Radius.circular(25),
           ),
         ),
-        child: Builder(
-            builder: (context) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Scaffold.of(context).openDrawer();
-                          },
-                          icon: const CircleAvatar(
-                            child: Icon(Icons.person),
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              fillColor: Colors.white.withOpacity(0.3),
-                              filled: true,
-                              prefixIcon: const Icon(Icons.search),
-                              labelText: 'Search...',
-                              border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(30),
-                                ),
-                              ),
+        child: Builder(builder: (context) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      icon: Avatar.small(url: Helpers.randomImageUrl()),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          fillColor: Colors.white.withOpacity(0.3),
+                          filled: true,
+                          prefixIcon: const Icon(Icons.search),
+                          labelText: 'Search...',
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(30),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text(
-                      'Active',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
                       ),
                     ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Active',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8),
-                          child: CircleAvatar(
-                            child: Icon(
-                              Icons.photo,
-                              size: 40,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              );
-            }
-        ),
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Avatar.small(
+                        url: Helpers.randomImageUrl(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          );
+        }),
       ),
     );
   }

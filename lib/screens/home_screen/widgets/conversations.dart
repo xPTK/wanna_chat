@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wanna_chat/global_widgets/avatar.dart';
+import 'package:wanna_chat/helpers.dart';
 import 'package:wanna_chat/screens/chat_screen.dart';
 
 class Conversations extends StatelessWidget {
@@ -25,11 +27,9 @@ class Conversations extends StatelessWidget {
               shape: const StadiumBorder(),
               child: Row(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: CircleAvatar(
-                      child: Icon(Icons.photo_camera),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Avatar.small(url: Helpers.randomImageUrl()),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
