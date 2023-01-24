@@ -1,0 +1,1 @@
+const double margin = 8.0;

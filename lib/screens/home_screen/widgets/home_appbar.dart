@@ -1,4 +1,6 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:wanna_chat/constants.dart';
 import 'package:wanna_chat/helpers.dart';
 import 'package:wanna_chat/global_widgets/avatar.dart';
 
@@ -10,7 +12,7 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 3,
+      flex: 4,
       child: Container(
         decoration: BoxDecoration(
           image: const DecorationImage(
@@ -28,7 +30,7 @@ class HomeAppBar extends StatelessWidget {
           ),
           color: Colors.purple,
           borderRadius: const BorderRadius.vertical(
-            bottom: Radius.circular(25),
+            bottom: Radius.circular(20),
           ),
         ),
         child: Builder(builder: (context) {
@@ -36,9 +38,9 @@ class HomeAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(8),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
                       onPressed: () {
@@ -66,7 +68,7 @@ class HomeAppBar extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 16),
                 child: Text(
                   'Active',
                   style: TextStyle(
@@ -81,9 +83,30 @@ class HomeAppBar extends StatelessWidget {
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Avatar.small(
-                        url: Helpers.randomImageUrl(),
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        children: [
+                          Avatar.medium(
+                            url: Helpers.randomImageUrl(),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: margin / 2),
+                            child: SizedBox(
+                              width: 60,
+                              child: Center(
+                                child: Text(
+                                  Faker().person.firstName(),
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    overflow: TextOverflow.ellipsis,
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     );
                   },
