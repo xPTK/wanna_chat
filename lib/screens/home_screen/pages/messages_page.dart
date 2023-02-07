@@ -7,8 +7,6 @@ class MessagesPage extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  //final PageController _storyController;
-
   @override
   Widget build(BuildContext context) {
     return Column(

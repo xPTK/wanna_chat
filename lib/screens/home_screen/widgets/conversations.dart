@@ -4,7 +4,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:wanna_chat/global_widgets/avatar.dart';
 import 'package:wanna_chat/helpers.dart';
 import 'package:wanna_chat/models/export.dart';
-import 'package:wanna_chat/screens/chat_screen.dart';
+import 'package:wanna_chat/screens/chat_screen/chat_screen.dart';
 
 class Conversations extends StatelessWidget {
   const Conversations({
@@ -58,7 +58,10 @@ class ConversationTile extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Avatar.small(url: messageModel.profileImageUrl),
+              child: Avatar.small(
+                url: messageModel.profileImageUrl,
+                borderColor: Colors.black,
+              ),
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.5,
@@ -108,7 +111,7 @@ class ConversationTile extends StatelessWidget {
                     height: 18,
                     width: 18,
                     decoration: BoxDecoration(
-                      color: Colors.purple,
+                      color: Colors.cyan,
                       shape: BoxShape.circle,
                     ),
                     child: const Center(

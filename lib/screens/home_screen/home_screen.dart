@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         drawer: const HomeDrawer(),
-        drawerScrimColor: Colors.purple,
+        drawerScrimColor: Colors.cyan,
         body: ValueListenableBuilder(
           valueListenable: pageIndex,
           builder: (context, value, child) {

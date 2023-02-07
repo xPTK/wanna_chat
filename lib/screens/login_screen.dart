@@ -19,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/login_screen_background4.jpg'),
+              image: AssetImage('assets/home_appbar_background.jpg'),
               fit: BoxFit.cover,
               opacity: 0.1,
             ),
@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     "Chat with everyone. Anywhere in the world.",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20, color: Colors.purple),
+                    style: TextStyle(fontSize: 20, color: Colors.cyan),
                   ),
                 ),
                 const Spacer(),
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     fixedSize: const Size(250, 55),
-                    backgroundColor: Colors.purple,
+                    backgroundColor: Colors.cyan,
                     shape: const StadiumBorder(),
                     side: const BorderSide(color: Colors.white),
                     elevation: 5.0,
@@ -105,7 +105,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialPageRoute(builder: (context) => HomeScreen()),
                     );
                   },
-                  child: const Text('Sign in'),
+                  child: const Text(
+                    'Sign in',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 const Spacer(),
               ],

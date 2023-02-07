@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:wanna_chat/global_widgets/avatar.dart';
 import 'package:wanna_chat/helpers.dart';
@@ -17,13 +19,142 @@ class HomeDrawer extends StatelessWidget {
           bottomRight: Radius.circular(50),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Avatar.large(url: Helpers.randomImageUrl()),
-          ],
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: AlignmentDirectional.bottomCenter,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 72.0),
+                child: Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: CachedNetworkImageProvider(
+                        Helpers.randomImageUrl(),
+                      ),
+                      fit: BoxFit.cover,
+                      opacity: 0.5,
+                    ),
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(50),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  // border: Border(
+                  //   bottom: BorderSide(width: 3, color: Colors.white),
+                  //   top: BorderSide(width: 3, color: Colors.white),
+                  //   left: BorderSide(width: 3, color: Colors.white),
+                  //   right: BorderSide(width: 3, color: Colors.white),
+                  // ),
+                ),
+                child: Avatar.large(
+                  url: Helpers.randomImageUrl(),
+                  //borderColor: Colors.black,
+                ),
+              ),
+              Positioned(
+                top: 8.0,
+                left: 8.0,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.add_photo_alternate_outlined),
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.6,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Name: ',
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.cyan,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Expanded(
+                        child: Text(
+                          Faker().person.name(),
+                          maxLines: 3,
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.black,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Email: ',
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.cyan,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            Faker().internet.freeEmail(),
+                            maxLines: 3,
+                            style: TextStyle(
+                              fontSize: 24,
+                              color: Colors.black,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'City: ',
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.cyan,
+                        ),
+                      ),
+                      Expanded(
+                        child: Text(
+                          Faker().address.city(),
+                          maxLines: 3,
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.black,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

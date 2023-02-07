@@ -24,11 +24,11 @@ class HomeAppBar extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.purple.withOpacity(0.75),
-              Colors.purple,
+              Colors.cyan.withOpacity(0.75),
+              Colors.cyan,
             ],
           ),
-          color: Colors.purple,
+          color: Colors.cyan,
           borderRadius: const BorderRadius.vertical(
             bottom: Radius.circular(20),
           ),
@@ -43,6 +43,7 @@ class HomeAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
+                      iconSize: 40,
                       onPressed: () {
                         Scaffold.of(context).openDrawer();
                       },
@@ -88,6 +89,8 @@ class HomeAppBar extends StatelessWidget {
                         children: [
                           Avatar.medium(
                             url: Helpers.randomImageUrl(),
+                            isActive: true,
+                            borderColor: Colors.white,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: margin / 2),
