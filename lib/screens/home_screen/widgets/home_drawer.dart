@@ -64,91 +64,122 @@ class HomeDrawer extends StatelessWidget {
                 left: 8.0,
                 child: IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.add_photo_alternate_outlined),
+                  icon: Icon(
+                    Icons.add_photo_alternate_outlined,
+                    shadows: [
+                      buildShadow(),
+                    ],
+                  ),
                   color: Colors.white,
                 ),
               )
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16.0),
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.6,
+              width: MediaQuery.of(context).size.width * 0.7,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Name: ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.cyan,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
-                          Faker().person.name(),
-                          maxLines: 3,
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.black,
-                            overflow: TextOverflow.ellipsis,
+                  Card(
+                    color: Colors.cyan,
+                    shape: StadiumBorder(),
+                    elevation: 5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.person_outline,
+                            color: Colors.white,
+                            shadows: [
+                              buildShadow(),
+                            ],
                           ),
-                        ),
+                          SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              Faker().person.name(),
+                              maxLines: 3,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Email: ',
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.cyan,
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            Faker().internet.freeEmail(),
-                            maxLines: 3,
-                            style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.black,
-                              overflow: TextOverflow.ellipsis,
+                    child: Card(
+                      color: Colors.cyan,
+                      shape: StadiumBorder(),
+                      elevation: 5,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.email_outlined,
+                              color: Colors.white,
+                              shadows: [
+                                buildShadow(),
+                              ],
                             ),
-                          ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Text(
+                                Faker().internet.freeEmail(),
+                                maxLines: 3,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'City: ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.cyan,
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
-                          Faker().address.city(),
-                          maxLines: 3,
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.black,
-                            overflow: TextOverflow.ellipsis,
+                  Card(
+                    color: Colors.cyan,
+                    shape: StadiumBorder(),
+                    elevation: 5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                            color: Colors.white,
+                            shadows: [
+                              buildShadow(),
+                            ],
                           ),
-                        ),
+                          SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              Faker().address.city(),
+                              maxLines: 3,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
@@ -156,6 +187,14 @@ class HomeDrawer extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Shadow buildShadow() {
+    return Shadow(
+      color: Colors.black,
+      offset: Offset.fromDirection(1, 1),
+      blurRadius: 1,
     );
   }
 }
