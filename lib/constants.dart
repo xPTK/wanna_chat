@@ -1,1 +1,1 @@
-const double margin = 8.0;
+const double padding = 8.0;

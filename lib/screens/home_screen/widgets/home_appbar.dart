@@ -16,7 +16,7 @@ class HomeAppBar extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           image: const DecorationImage(
-            image: AssetImage('assets/home_appbar_background.jpg'),
+            image: AssetImage('assets/bubbles_background.jpg'),
             fit: BoxFit.cover,
             opacity: 0.1,
           ),
@@ -56,7 +56,19 @@ class HomeAppBar extends StatelessWidget {
                           fillColor: Colors.white.withOpacity(0.3),
                           filled: true,
                           prefixIcon: const Icon(Icons.search),
+                          floatingLabelStyle: const TextStyle(
+                            color: Colors.white,
+                          ),
                           labelText: 'Search...',
+                          // labelStyle: TextStyle(
+                          //   color: Colors.white,
+                          // ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(30),
+                            ),
+                          ),
                           border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(30),
@@ -74,7 +86,7 @@ class HomeAppBar extends StatelessWidget {
                   'Active',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 18,
+                    fontSize: 20,
                   ),
                 ),
               ),
@@ -93,17 +105,17 @@ class HomeAppBar extends StatelessWidget {
                             borderColor: Colors.white,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: margin / 2),
+                            padding: const EdgeInsets.only(top: padding / 2),
                             child: SizedBox(
                               width: 60,
                               child: Center(
                                 child: Text(
                                   Faker().person.firstName(),
                                   maxLines: 1,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     overflow: TextOverflow.ellipsis,
                                     color: Colors.white,
-                                    fontSize: 12,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ),

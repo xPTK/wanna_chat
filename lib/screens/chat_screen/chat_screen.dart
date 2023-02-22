@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wanna_chat/global_widgets/avatar.dart';
 import 'package:wanna_chat/models/export.dart';
 import 'package:wanna_chat/screens/chat_screen/widgets/export.dart';
+import 'package:wanna_chat/screens/login_screen.dart';
 
 class ChatScreen extends StatefulWidget {
   ChatScreen({
@@ -31,6 +32,17 @@ class _ChatScreenState extends State<ChatScreen> {
         appBar: AppBar(
           foregroundColor: Colors.white,
           toolbarHeight: 80,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              shadows: [
+                buildShadow(),
+              ],
+            ),
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(20),
@@ -62,11 +74,16 @@ class _ChatScreenState extends State<ChatScreen> {
           actions: [
             IconButton(
               onPressed: () {
-                print(listScrollController.position);
+                //print(listScrollController.position);
+                //print(MediaQuery.of(context).viewPadding.bottom);
+                print(MediaQuery.of(context).viewInsets.bottom);
               },
               icon: Icon(
                 Icons.more_vert,
                 color: Colors.white,
+                shadows: [
+                  buildShadow(),
+                ],
               ),
             )
           ],
@@ -105,6 +122,14 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         bottomNavigationBar: BottomActionBar(chatController: chatController),
       ),
+    );
+  }
+
+  Shadow buildShadow() {
+    return Shadow(
+      color: Colors.black,
+      offset: Offset.fromDirection(1, 1),
+      blurRadius: 1,
     );
   }
 }

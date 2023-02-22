@@ -19,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/home_appbar_background.jpg'),
+              image: AssetImage('assets/bubbles_background.jpg'),
               fit: BoxFit.cover,
               opacity: 0.1,
             ),
@@ -32,34 +32,67 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Center(
-                      child: Text(
-                        "WannaChat?",
-                        style: TextStyle(
-                          fontSize: 48,
-                        ),
+                  children: [
+                    RichText(
+                      text: const TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Wanna',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 64,
+                              fontFamily: 'Boogaloo',
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Chat?',
+                            style: TextStyle(
+                              color: Colors.cyan,
+                              fontSize: 64,
+                              fontFamily: 'Boogaloo',
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        '|',
-                        style: TextStyle(
-                          fontSize: 24,
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Container(
+                        width: 1.5,
+                        height: 24.0,
+                        decoration: const BoxDecoration(
                           color: Colors.grey,
                         ),
                       ),
                     ),
-                    Icon(Icons.chat, size: 36),
+                    const Icon(
+                      Icons.chat_outlined,
+                      size: 48,
+                    ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                const Center(
-                  child: Text(
-                    "Chat with everyone. Anywhere in the world.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20, color: Colors.cyan),
+                Center(
+                  child: RichText(
+                    text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Chat with everyone. ",
+                          style: TextStyle(
+                            color: Colors.cyan,
+                            fontSize: 22,
+                            fontFamily: 'Boogaloo',
+                          ),
+                        ),
+                        TextSpan(
+                          text: "Anywhere in the world.",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontFamily: 'Boogaloo',
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -68,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.person),
+                    prefixIcon: Icon(Icons.person_outlined),
                     labelText: 'Enter your email address',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -77,19 +110,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    labelText: 'Enter your password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(30),
-                      ),
-                    ),
-                  ),
                   controller: passwordController,
                   keyboardType: TextInputType.visiblePassword,
-                  obscureText: false,
                   textInputAction: TextInputAction.done,
+                  obscureText: false,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.lock_outlined),
+                    labelText: 'Enter your password',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 10),
                 ElevatedButton(

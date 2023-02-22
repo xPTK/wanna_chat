@@ -72,19 +72,21 @@ class ConversationTile extends StatelessWidget {
                   Text(
                     messageModel.senderName,
                     maxLines: 1,
-                    style: TextStyle(
-                      overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
+                      letterSpacing: 0.4,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Text(
                     messageModel.message,
                     maxLines: 1,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
+                      fontSize: 14,
                       fontWeight: FontWeight.w300,
-                      fontSize: 12,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -100,17 +102,17 @@ class ConversationTile extends StatelessWidget {
                 children: [
                   Text(
                     messageModel.dateMessageUI,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
+                      fontSize: 14,
                       fontWeight: FontWeight.w300,
-                      fontSize: 12,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Container(
                     height: 18,
                     width: 18,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.cyan,
                       shape: BoxShape.circle,
                     ),

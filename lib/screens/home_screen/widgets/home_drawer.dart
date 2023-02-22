@@ -3,6 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:wanna_chat/global_widgets/avatar.dart';
 import 'package:wanna_chat/helpers.dart';
+import 'package:wanna_chat/screens/home_screen/widgets/export.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({
@@ -38,14 +39,14 @@ class HomeDrawer extends StatelessWidget {
                       opacity: 0.5,
                     ),
                     color: Colors.black.withOpacity(0.5),
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(50),
                     ),
                   ),
                 ),
               ),
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   // border: Border(
                   //   bottom: BorderSide(width: 3, color: Colors.white),
@@ -67,7 +68,11 @@ class HomeDrawer extends StatelessWidget {
                   icon: Icon(
                     Icons.add_photo_alternate_outlined,
                     shadows: [
-                      buildShadow(),
+                      Shadow(
+                        color: Colors.black,
+                        offset: Offset.fromDirection(1, 1),
+                        blurRadius: 1,
+                      ),
                     ],
                   ),
                   color: Colors.white,
@@ -82,119 +87,89 @@ class HomeDrawer extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Card(
-                    color: Colors.cyan,
-                    shape: StadiumBorder(),
-                    elevation: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.person_outline,
-                            color: Colors.white,
-                            shadows: [
-                              buildShadow(),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: Text(
-                              Faker().person.name(),
-                              maxLines: 3,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  ProfileInfoBox(
+                    icon: Icons.person_outline,
+                    text: Faker().person.name(),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Card(
-                      color: Colors.cyan,
-                      shape: StadiumBorder(),
-                      elevation: 5,
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.email_outlined,
-                              color: Colors.white,
-                              shadows: [
-                                buildShadow(),
-                              ],
-                            ),
-                            SizedBox(width: 10),
-                            Expanded(
-                              child: Text(
-                                Faker().internet.freeEmail(),
-                                maxLines: 3,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  ProfileInfoBox(
+                    icon: Icons.email_outlined,
+                    text: Faker().internet.freeEmail(),
                   ),
-                  Card(
-                    color: Colors.cyan,
-                    shape: StadiumBorder(),
-                    elevation: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                            color: Colors.white,
-                            shadows: [
-                              buildShadow(),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: Text(
-                              Faker().address.city(),
-                              maxLines: 3,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  ProfileInfoBox(
+                    icon: Icons.location_on_outlined,
+                    text: Faker().address.city(),
                   ),
+                  // Card(
+
+                  //   color: Colors.cyan,
+                  //   shape: StadiumBorder(),
+                  //   elevation: 5,
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(16.0),
+                  //     child: Row(
+                  //       crossAxisAlignment: CrossAxisAlignment.center,
+                  //       children: [
+                  //         Icon(
+                  //           Icons.email_outlined,
+                  //           color: Colors.white,
+                  //           shadows: [
+                  //             buildShadow(),
+                  //           ],
+                  //         ),
+                  //         SizedBox(width: 10),
+                  //         Expanded(
+                  //           child: Text(
+                  //             Faker().internet.freeEmail(),
+                  //             maxLines: 3,
+                  //             style: TextStyle(
+                  //               fontSize: 18,
+                  //               color: Colors.white,
+                  //               overflow: TextOverflow.ellipsis,
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  // Card(
+                  //   color: Colors.cyan,
+                  //   shape: StadiumBorder(),
+                  //   elevation: 5,
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(16.0),
+                  //     child: Row(
+                  //       crossAxisAlignment: CrossAxisAlignment.center,
+                  //       children: [
+                  //         Icon(
+                  //           Icons.location_on_outlined,
+                  //           color: Colors.white,
+                  //           shadows: [
+                  //             buildShadow(),
+                  //           ],
+                  //         ),
+                  //         SizedBox(width: 10),
+                  //         Expanded(
+                  //           child: Text(
+                  //             Faker().address.city(),
+                  //             maxLines: 3,
+                  //             style: TextStyle(
+                  //               fontSize: 18,
+                  //               color: Colors.white,
+                  //               overflow: TextOverflow.ellipsis,
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
           )
         ],
       ),
-    );
-  }
-
-  Shadow buildShadow() {
-    return Shadow(
-      color: Colors.black,
-      offset: Offset.fromDirection(1, 1),
-      blurRadius: 1,
     );
   }
 }

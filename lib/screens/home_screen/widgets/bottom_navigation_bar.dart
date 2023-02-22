@@ -37,7 +37,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
               buildShadow(),
             ],
           ),
-          title: const Text('Messages'),
+          title: const Text(
+            'Messages',
+            style: TextStyle(
+              fontFamily: 'Boogaloo',
+              fontSize: 16,
+            ),
+          ),
         ),
         SalomonBottomBarItem(
           icon: Icon(
@@ -46,7 +52,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
               buildShadow(),
             ],
           ),
-          title: const Text('Notifications'),
+          title: const Text(
+            'Notifications',
+            style: TextStyle(
+              fontFamily: 'Boogaloo',
+              fontSize: 16,
+            ),
+          ),
         ),
         SalomonBottomBarItem(
           icon: Icon(
@@ -55,7 +67,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
               buildShadow(),
             ],
           ),
-          title: const Text('Settings'),
+          title: const Text(
+            'Settings',
+            style: TextStyle(
+              fontFamily: 'Boogaloo',
+              fontSize: 16,
+            ),
+          ),
         ),
       ],
     );
